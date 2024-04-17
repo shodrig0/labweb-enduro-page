@@ -1,0 +1,101 @@
+.container-mayor {
+  height: 100vh;
+  background-color: rgb(202, 114, 31);
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  width: 100vw;
+  height: 50vh;
+  margin: 0 auto;
+  position: relative;
+  background: linear-gradient(
+    rgb(255, 255, 255) 0 30%,
+    rgb(247, 168, 137) 95% 100%
+  );
+}
+
+.moto {
+  width: 84px;
+  height: 84px;
+  position: absolute;
+  bottom: 25px;
+  left: 42px;
+  z-index: 2;
+  background: url(/assets/img/spriteanimar.png) repeat-x 0 0;
+  background-size: 340px 84px;
+  background-position-x: 0;
+}
+
+.moto-funcionando {
+  animation: animarMoto 0.25s steps(2) infinite;
+}
+
+.moto-colision {
+  background-position: -262px;
+}
+
+.piso {
+  width: 200%;
+  height: 42px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  background: url(/assets/img/piso.png) repeat-x 0 0;
+  background-size: 50% 42px;
+}
+
+.cactus {
+  width: 46px;
+  height: 96px;
+  position: absolute;
+  bottom: 16px;
+  left: 600px;
+  z-index: 1;
+  background: url(/assets/img/cactusrenderF.png) no-repeat;
+}
+
+.rocas {
+  width: 98px;
+  height: 66px;
+  background: url(/assets/img/grupoCactusF.png) no-repeat;
+}
+
+.puntaje {
+  width: 100px;
+  height: 30px;
+  position: absolute;
+  top: 5px;
+  left: 15px;
+  z-index: 5;
+  color : rgb(0, 0, 0);
+  font-family: monospace;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.game-over {
+    display: none;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+    font-family: monospace;
+    z-index: 50;
+}
+
+@keyframes animarMoto {
+  from {
+    background-position-x: -84px;
+  }
+  50% {
+    background-position-x: -255px;
+  }
+  to {
+    background-position-x: -261px;
+  }
+}
