@@ -24,7 +24,19 @@ h1 {
   margin: 0;
 }
 
-.efecto-mount {
+.navClass {
   margin: 0;
   padding: 0;
+  position: absolute;
+  top: 2%;
+  transform: translateY(-50%);
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navClass a {
+  padding: 0.5em;
+  color: rgb(255, 155, 41);
 }
