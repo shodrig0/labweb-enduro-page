@@ -6,75 +6,82 @@
     <title>Enduro</title>
     <link rel="stylesheet" href="../css/init.css" />
     <link rel="stylesheet" href="../css/home.css" />
+    <link rel="icon" href="../favicon.png" />
   </head>
   <!-- le pongo esa clase por si hay que hacer algo después -->
   <body>
-    <header class="container-header">
-      <h1>Miculian Enduro</h1>
-      <nav class="navClass">
-        <a href="index.html">Inicio</a>
-        <a href="galeria.html">Galería</a>
-        <a href="sobreEnduro.html">Qué es el Enduro?</a>
-        <a href="sobreDepor.html">Sobre mí</a>
-        <a href="contacto.html">Contacto</a>
-        <a href="game.html">Juega</a>
-      </nav>
-      <div class="container-saludo">
-        <div class="container-contenido">
-          <div class="container-contenido-texto">
-            <p>Sean bienvenidos,</p>
-            <ul class="container-contenido-lista">
-              <li class="container-contenido-frase">amantes de las motos</li>
-              <li class="container-contenido-frase">fanáticos del enduro</li>
-              <li class="container-contenido-frase">locos por el off-road</li>
-              <li class="container-contenido-frase">disfruten!</li>
-            </ul>
+    <main class="contenido-slide">
+      <header class="container-header">
+        <img
+          src="/assets/img/logos/MGM.png"
+          alt="inicio"
+          id="logo-inicio"
+          class="logoInicio"
+        />
+        <nav class="navClass">
+          <a href="index.html">Inicio</a>
+          <a href="galeria.html">Galería</a>
+          <a href="sobreEnduro.html">Qué es el Enduro?</a>
+          <a href="sobreDepor.html">Sobre mí</a>
+          <a href="contacto.html">Contacto</a>
+          <a href="game.html">Juega</a>
+        </nav>
+        <div class="container-saludo">
+          <div class="container-contenido">
+            <div class="container-contenido-texto">
+              <p>Sean bienvenidos,</p>
+              <ul class="container-contenido-lista">
+                <li class="container-contenido-frase">amantes de las motos</li>
+                <li class="container-contenido-frase">fanáticos del enduro</li>
+                <li class="container-contenido-frase">locos por el off-road</li>
+                <li class="container-contenido-frase">disfruten!</li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="efecto-mount">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-          <path
-            fill="#db0b2a"
-            fill-opacity="0.850"
-            d="M0,288L240,224L480,160L720,96L960,160L1200,160L1440,224L1440,320L1200,320L960,320L720,320L480,320L240,320L0,320Z"
-          ></path>
-        </svg>
-      </div>
-    </header>
-    <br /><br /><br />
-    <!-- secciones: sponsors -->
-    <section class="contenido" id="primer-seccion">
-      <div class="container-seccion sponsors">
-        <div>
-          <img src="/assets/img/logos/logo-honda-1.jpg" alt="honda" />
-        </div>
-        <div>
-          <img src="/assets/img/logos/castrol.png" alt="castrol" />
-        </div>
-        <div>
-          <img src="/assets/img/logos/m_o_5425.jpg" alt="confluencia" />
-        </div>
-        <div>
-          <img src="/assets/img/logos/icbc-logo.jpg" alt="icbc" />
-        </div>
-        <div>
-          <img src="/assets/img/logos/hawk-logo.jpg" alt="hawk" />
-        </div>
-      </div>
-    </section>
-    <!-- secciones: galeria/noticias -->
-    <section>
-      <div class="contenido">
-        <div class="container-seccion">
+      </header>
+      <!-- seccion: sponsors -->
+      <section class="contenido" id="seccion-1">
+        <div class="container-seccion sponsors">
           <div>
-            <img src="/assets/img/" alt="" />
+            <img src="/assets/img/logos/logo-honda-1.jpg" alt="honda" />
           </div>
-          <div>noticias</div>
+          <div>
+            <img src="/assets/img/logos/castrol.png" alt="castrol" />
+          </div>
+          <div>
+            <img src="/assets/img/logos/m_o_5425.jpg" alt="confluencia" />
+          </div>
+          <div>
+            <img src="/assets/img/logos/icbc-logo.jpg" alt="icbc" />
+          </div>
+          <div>
+            <img src="/assets/img/logos/hawk-logo.jpg" alt="hawk" />
+          </div>
         </div>
-      </div>
-    </section>
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      </section>
+      <!-- seccion: galeria -->
+      <section class="contenido" id="seccion-2">
+        <div class="container-seccion">
+          <div class="miniaturas">
+            <h3>Galeria</h3>
+            <p>Sentí la emoción de la competición en cada imagen</p>
+            <img src="/assets/img/logos/MGM.png" alt="galeria" />
+          </div>
+        </div>
+      </section>
+      <!-- seccion -->
+      <section class="contenido" id="seccion-3">
+        <div class="container-seccion">
+          <div class="miniaturas">
+            <h3>Mi historia</h3>
+            <p>Explorá mi mundo sobre ruedas</p>
+            <img src="/assets/img/logos/MGM.png" alt="historia" />
+          </div>
+        </div>
+      </section>
+      <div id="footer"></div>
+    </main>
     <script src="../disenio.js"></script>
   </body>
 </html>

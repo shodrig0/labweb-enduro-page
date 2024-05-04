@@ -13,11 +13,13 @@ body {
   margin: 0;
   padding: 0;
   background-color: gray;
+  scroll-behavior: smooth;
 }
 
-.contenido {
-  background-color: rgba(219, 11, 42, 0.85);
-  margin: 0.5rem 0;
+.logoInicio {
+  margin: 0;
+  width: 7em;
+  height: 2.5em;
 }
 
 h1 {
@@ -34,7 +36,7 @@ h1 {
 .navClass {
   margin: 0;
   padding: 0;
-  position: absolute;
+  position: relative;
   top: 2%;
   transform: translateY(-50%);
   right: 0;
@@ -48,23 +50,54 @@ h1 {
   color: rgb(255, 155, 41);
 }
 
+/* contenido */
+
+.contenido-slide {
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: block mandatory;
+}
+
+.contenido {
+  width: 100%;
+  height: inherit;
+  background-color: rgba(219, 11, 42, 0.85);
+  scroll-snap-align: start;
+}
+
 .container-seccion {
+  width: 80%;
+  height: inherit;
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap; /* activar para que todo vaya sobre una linea */
-  justify-content: center;
+  justify-content: space-around;
   text-align: center;
 }
 
 /* sponsors */
-.container-seccion div {
+/*.container-seccion div {
   flex: 1;
   margin: 2em;
   padding: 1em;
   border: 0.3em dotted black;
-}
+}*/
 
 .sponsors img {
   width: 7em;
   height: 7em;
   border-radius: 50%;
+}
+
+/* galeria noticias */
+.miniaturas img {
+  width: 21.813em; /* AHJDJA SON LAS MEDIDAS PERFECTAS EN EM DE LOS PX*/
+  height: 7.313em;
+}
+
+/* footer */
+.container-footer {
+  height: 5em;
+  background-color: rgba(0, 0, 0, 0.85);
 }

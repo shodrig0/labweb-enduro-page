@@ -1,4 +1,4 @@
-function cargarTemplate() {
+function cargarHeader() {
   fetch("../header.html")
     .then((response) => response.text())
     .then((data) => {
@@ -9,7 +9,20 @@ function cargarTemplate() {
     });
 }
 
-cargarTemplate();
+cargarHeader();
+
+function cargarFooter() {
+  fetch("../footer.html")
+    .then((response) => response.text())
+    .then((data) => {
+      document.getElementById("footer").innerHTML = data;
+    })
+    .catch((error) => {
+      console.error("No se pueden cargar los diseños: ", error);
+    });
+}
+
+cargarFooter();
 
 /**
  * Explicacion:
