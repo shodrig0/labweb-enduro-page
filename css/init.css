@@ -38,10 +38,10 @@ h1 {
   padding: 0;
   position: relative;
   top: 2%;
-  transform: translateY(-50%);
   right: 0;
+  transform: translateY(-50%);
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -64,8 +64,6 @@ h1 {
 }
 
 .container-seccion {
-  width: 80%;
-  height: inherit;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap; /* activar para que todo vaya sobre una linea */
@@ -74,12 +72,12 @@ h1 {
 }
 
 /* sponsors */
-/*.container-seccion div {
+.container-seccion div {
   flex: 1;
   margin: 2em;
   padding: 1em;
   border: 0.3em dotted black;
-}*/
+}
 
 .sponsors img {
   width: 7em;
