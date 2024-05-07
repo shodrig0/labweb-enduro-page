@@ -16,7 +16,7 @@ body {
   background-color: rgb(194, 142, 159);
   scroll-behavior: smooth;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
 }
 
 h1 {
@@ -72,39 +72,38 @@ h1 {
 }
 
 .container-seccion {
+  width: 80%;
+  height: inherit;
   margin: 0 auto;
   display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
+  flex-wrap: wrap; /* activar para que todo vaya sobre una linea */
   text-align: center;
+  justify-content: space-around;
 }
+
+/*.container-seccion div {
+  flex: 1;
+  border: 0.3em dotted black;
+}*/
 
 /* sponsors */
-/* .carrusel-cont {
-  overflow: hidden;
+.sponsors img {
+  width: 7em;
+  height: 7em;
+  margin: 2em;
+  padding: 1em;
+  border-radius: 50%;
 }
 
-.sponsor-slider {
+.scroll {
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
   justify-content: space-around;
-  align-items: center;
-  transition: all 1s ease-in;
 }
 
-.sponsor-slider img {
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-} */
-
-/* .sponsors img {
-  width: 100%;
-} */
 
 /* galeria noticias */
 .miniaturas img {
-  width: 21.813em; /* AHJDJA SON LAS MEDIDAS PERFECTAS EN EM DE LOS PX*/
+  width: 21.813em;
   height: 7.313em;
 }
 
