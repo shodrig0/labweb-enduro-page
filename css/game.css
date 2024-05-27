@@ -3,6 +3,7 @@
   background-color: rgb(202, 114, 31);
   display: flex;
   align-items: center;
+  overflow: hidden;
 }
 
 .container {
@@ -70,7 +71,7 @@
   top: 5px;
   left: 15px;
   z-index: 5;
-  color : rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
   font-family: monospace;
   font-size: 25px;
   font-weight: bold;
@@ -78,14 +79,14 @@
 }
 
 .game-over {
-    display: none;
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    color: rgb(0, 0, 0);
-    font-size: 30px;
-    font-family: monospace;
-    z-index: 50;
+  display: none;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-size: 30px;
+  font-family: monospace;
+  z-index: 50;
 }
 
 @keyframes animarMoto {
@@ -99,3 +100,29 @@
     background-position-x: -261px;
   }
 }
+
+/* .salto {
+  animation: salto 0.25s steps(5) infinite;
+}
+
+@keyframes salto {
+  0% {
+    top: 230px;
+  }
+
+  30% {
+    top: 150px;
+  }
+
+  50% {
+    top: 100px;
+  }
+
+  80% {
+    top: 150px;
+  }
+
+  100% {
+    top: 230px;
+  }
+} */
