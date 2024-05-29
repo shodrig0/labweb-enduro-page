@@ -3,6 +3,7 @@ function cargarHeader() {
     .then((request) => request.text())
     .then((dataPage) => {
       document.getElementById("header").innerHTML = dataPage;
+      fondoRandom();
     })
     .catch((error) => {
       console.error("No se pueden cargar los diseños: ", error);
@@ -23,6 +24,22 @@ function cargarFooter() {
 }
 
 cargarFooter();
+
+function fondoRandom() {
+  const bgRandom = document.getElementById("container-header");
+  const bgRuta = window.location.pathname;
+
+  let bgCambianteClase;
+  if (bgRuta.includes("index.html")) {
+    bgCambianteClase = "index-bg";
+  } else if (bgRuta.includes("galeria.html")) {
+    bgCambianteClase = "galeria-bg";
+  }
+
+  bgRandom.classList.add(bgCambianteClase);
+}
+
+document.addEventListener("DOMContentLoaded");
 
 /**
  * Explicacion:
