@@ -1,0 +1,32 @@
+.container {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section {
+    display: flex;
+    width: 600px;
+    height: 430px;
+}
+
+img {
+    width: 250px;
+    height: 250px;
+}
+
+section img {
+    width: 0px;
+    flex-grow: 1;
+    object-fit: cover;
+    opacity: 0.8;
+    transition: 0.8s ease;
+}
+
+section img:hover {
+    cursor: pointer;
+    width: 250px;
+    opacity: 1;
+    filter: contrast(150%);
+}

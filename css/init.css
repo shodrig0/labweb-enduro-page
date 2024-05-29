@@ -16,7 +16,7 @@ body {
   background-color: rgb(194, 142, 159);
   scroll-behavior: smooth;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
 }
 
 h1 {
@@ -76,7 +76,7 @@ h1 {
   height: inherit;
   margin: 0 auto;
   display: flex;
-  flex-wrap: wrap; /* activar para que todo vaya sobre una linea */
+  flex-wrap: wrap;
   text-align: center;
   justify-content: space-around;
 }
