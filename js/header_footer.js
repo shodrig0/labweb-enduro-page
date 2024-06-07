@@ -25,8 +25,12 @@ function cargarFooter() {
 
 cargarFooter();
 
+
+/**
+ * Cambia el fondo del header, con respecto al html en el que
+ */
 function fondoRandom() {
-  const bgRandom = document.getElementById("container-header");
+  const bgRandom = document.querySelector(".bg-img");
   const bgRuta = window.location.pathname;
 
   let bgCambianteClase;
@@ -34,12 +38,20 @@ function fondoRandom() {
     bgCambianteClase = "index-bg";
   } else if (bgRuta.includes("galeria.html")) {
     bgCambianteClase = "galeria-bg";
+  } else if (bgRuta.includes("sobreEnduro.html")) {
+    bgCambianteClase = "sobreEnd-bg";
+  } else if (bgRuta.includes("sobreMi.html")) {
+    bgCambianteClase = "sobreMi-bg";
+  } else if (bgRuta.includes("contacto.html")) {
+    bgCambianteClase = "contacto-bg"
+  } else if (bgRuta.includes("game.html")) {
+    bgCambianteClase = "game-bg";
   }
 
   bgRandom.classList.add(bgCambianteClase);
 }
 
-document.addEventListener("DOMContentLoaded");
+document.addEventListener("DOMContentLoaded", fondoRandom);
 
 /**
  * Explicacion:

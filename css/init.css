@@ -13,21 +13,15 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(22, 22, 29);
   scroll-behavior: smooth;
   display: flex;
   flex-direction: column;
 }
 
-h1 {
-  margin: 0;
-}
-
-/* header */
-.container-header {
-  width: 100%;
-  height: 50vh;
-  background-color: transparent;
+h3 {
+  color: azure;
+  margin: 2em auto 0 auto;
 }
 
 .container-header img {
@@ -42,25 +36,12 @@ h1 {
   height: 2.5em;
 }
 
-/* nav */
-.navClass {
-  width: 100%;
-  height: inherit;
-  margin: 0;
-  padding: 0;
-  /* background-color: rgb(6, 131, 89); */
-  position: relative;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.navClass a {
-  padding: 0.5em;
-  color: rgb(255, 155, 41);
+/* container-supremo*/
+.container-supremo {
+  width: 80%;
+  margin: 2em auto 0 auto;
+  border: 2px solid black;
+  background-color: rgba(40, 20, 221, 0.233);
 }
 
 /* contenido */
@@ -82,7 +63,6 @@ h1 {
   position: relative;
   width: 100vw;
   height: 300px;
-  margin-top: 10vh;
 }
 
 .sponsors>img {
@@ -153,5 +133,5 @@ img:nth-child(5) {
 /* footer */
 .container-footer {
   height: 5em;
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: rgba(22, 22, 29);
 }
