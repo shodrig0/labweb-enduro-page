@@ -51,7 +51,9 @@ function fondoRandom() {
   bgRandom.classList.add(bgCambianteClase);
 }
 
-document.addEventListener("DOMContentLoaded", fondoRandom);
+fondoRandom()
+
+// document.addEventListener("DOMContentLoaded", fondoRandom);
 
 /**
  * Explicacion:
