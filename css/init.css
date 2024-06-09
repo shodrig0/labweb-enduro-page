@@ -8,6 +8,10 @@ html {
   box-sizing: inherit;
 }
 
+a {
+  text-decoration: none;
+}
+
 body {
   min-height: 100vh;
   margin: 0;
@@ -38,11 +42,19 @@ h3 {
   height: 2.5em;
 }
 
+hr {
+  width: 80%;
+}
+
 /* container-supremo*/
 .container-supremo {
   width: 80%;
   margin: 2em auto 0 auto;
-  background-color: rgb(255, 210, 188);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background-color: rgb(231, 231, 231); */
 }
 
 /* contenido */
@@ -56,6 +68,7 @@ h3 {
   flex-wrap: wrap;
 }
 
+
 /* sponsors */
 .sponsors {
   display: flex;
@@ -63,7 +76,7 @@ h3 {
   justify-content: center;
   position: relative;
   width: 100vw;
-  height: 300px;
+  height: 9.375em;
 }
 
 .sponsors>img {
@@ -93,7 +106,7 @@ img:nth-child(5) {
 .sponsors img {
   width: 10em;
   height: 10em;
-  margin: 2em;
+  margin: 1.5em;
   border-radius: 50%;
 }
 
@@ -126,22 +139,181 @@ img:nth-child(5) {
 }
 
 /* cuerpo */
-.miniaturas {
+.container-seccion {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.sobreMi span {
-  background-color: rgb(0, 0, 0);
-  width: 20.813em;
-  height: 100%;
-  text-align: center;
+.efectoScroll {
+  view-timeline-name: --prueba;
+  view-timeline-axis: block;
+
+  animation-timeline: --prueba;
+  animation-name: mostrarContenido;
+
+  animation-range: entry 5% cover 50%;
+}
+
+.sobreMi {
+  margin: 0 auto;
+  width: 22em;
+  height: 22em;
+  background-image: url(/assets/img/Necesarias/sobreMI.jpg);
+  background-size: 170%;
+  background-position: center;
+  border-radius: 50%;
+  border: 0.015em solid rgb(22, 22, 29);
+}
+
+.minGal {
+  margin: 0 auto;
+  width: 22em;
+  height: 22em;
+  background-image: url(/assets/img/Necesarias/miniaturaGaleria.jpg);
+  background-size: cover;
+  background-position: top center;
+  border-radius: 50%;
+  border: 0.015em solid rgb(22, 22, 29);
+}
+
+@keyframes mostrarContenido {
+  from {
+    opacity: 0;
+    scale: 25%;
+  }
+
+  to {
+    opacity: 1;
+    scale: 100%;
+  }
+}
+
+/* sobre Enduro */
+.explicacionEnduro {
+  text-align: justify;
+  padding: 0.5em;
+}
+
+.seccionEnd {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.seccionEnd #p1,
+#p3,
+#p5 {
+  background-color: rgb(255, 255, 255);
+  width: 50%;
+  align-self: flex-end;
+  border: 2px dotted rgb(0, 0, 0);
+}
+
+.seccionEnd #p2,
+#p4,
+#p6 {
+  background-color: rgb(255, 255, 255);
+  width: 50%;
+  align-self: flex-start;
+  border: 2px dotted rgb(0, 0, 0);
+}
+
+.imgEnd1,
+.imgEnd2,
+.imgEnd3,
+.imgEnd4,
+.imgEnd5 {
+  width: 25em;
+  height: 25em;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 0.5em;
+  border-radius: 50%;
+  border: 2px solid rgb(0, 0, 0);
+}
+
+.imgEnd1 {
+  background-image: url('https://live.staticflickr.com/65535/53696167637_2b48d000ce_o.jpg');
+  align-self: flex-start;
+  margin-left: 4em;
+}
+
+.imgEnd2 {
+  background-image: url('https://live.staticflickr.com/65535/53697059106_ae7a857ab1_o.jpg');
+  align-self: flex-end;
+  margin-right: 4em;
+}
+
+.imgEnd3 {
+  background-image: url('https://live.staticflickr.com/65535/53697263988_3af83a688b_o.jpg');
+  align-self: flex-start;
+  margin-left: 4em;
+}
+
+.imgEnd4 {
+  background-image: url('https://live.staticflickr.com/65535/53697054886_6492810f1a_o.jpg');
+  align-self: flex-end;
+  margin-right: 4em;
+}
+
+.imgEnd5 {
+  background-image: url('https://live.staticflickr.com/65535/53697494700_57954beb50_o.jpg');
+  align-self: flex-start;
+  margin-left: 4em;
 }
 
 /* footer */
 .container-footer {
   height: 5em;
   background-color: rgba(22, 22, 29);
+}
+
+/* Sobre Mi*/
+/* .seccionSobreMi img {
+  width: 25em;
+  height: 25em;
+  object-fit: contain;
+  } */
+
+.miHist {
+  text-align: justify;
+}
+
+.seccionSobreMi {
+  width: 80%;
+  overflow: hidden;
+}
+
+.contenedorPicsAboutMe {
+  display: flex;
+}
+
+.imgMia0 {
+  background-image: url('https://live.staticflickr.com/65535/53697495080_3dcb111b7b_o.jpg');
+}
+
+.imgMia1 {
+  background-image: url('https://live.staticflickr.com/65535/53697058816_a228999a81_o.jpg');
+}
+
+.imgMia2 {
+  background-image: url('https://live.staticflickr.com/65535/53696167367_30f3df6630_o.jpg');
+}
+
+.imgMia3 {
+  background-image: url('https://live.staticflickr.com/65535/53696167357_4ef58f840d_o.jpg"');
+}
+
+.fotoAboutMe {
+  width: 25em;
+  height: 25em;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-clip: padding-box;
+  background-position: center center;
 }

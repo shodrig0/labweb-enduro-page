@@ -1,32 +1,87 @@
-.container {
-    margin-top: 100px;
+.seccionGaleria {
+    margin-top: 5em;
+}
+
+.seccionGaleria img {
+    width: 25em;
+    height: 100%;
+}
+
+.modal-ventana {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 990;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: rgba(0, 0, 0, 0.480);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 300ms ease-in-out;
 }
 
-section {
-    display: flex;
-    width: 600px;
-    height: 430px;
-}
-
-img {
-    width: 250px;
-    height: 250px;
-}
-
-section img {
-    width: 0px;
-    flex-grow: 1;
-    object-fit: cover;
-    opacity: 0.8;
-    transition: 0.8s ease;
-}
-
-section img:hover {
-    cursor: pointer;
-    width: 250px;
+.modal-ventana:target {
     opacity: 1;
-    filter: contrast(150%);
+    pointer-events: auto;
+}
+
+.modal-container {
+    width: 75%;
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border: thick double rgb(22, 22, 29);
+    border-radius: 0.5em;
+    padding: 1em;
+    background-color: rgb(255, 255, 255);
+}
+
+.modal-cerrarBtn {
+    position: absolute;
+    top: 2.2em;
+    right: 1em;
+    width: 2em;
+    height: 2em;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+    background-color: rgb(255, 50, 50);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 2em;
+    transition: background-color 300ms linear, transform 300ms ease-in-out;
+}
+
+.modal-cerrarBtn:hover {
+    background-color: rgb(184, 5, 5);
+    transform: scale(1.1);
+}
+
+.container-galleriaModal {
+    margin: 2em auto;
+    aspect-ratio: 10 / 10;
+    width: 50em;
+    height: 50em;
+    position: relative;
+    display: flex;
+    overflow: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    /* -ms-overflow-style: none; en desuso */
+}
+
+.container-galleriaModal::-webkit-scrollbar {
+    display: none;
+}
+
+.container-galleriaModal img {
+    width: 100%;
+    left: 0;
+    object-fit: cover;
+    margin: 0 0 0 15em;
+    scroll-snap-align: center;
 }
