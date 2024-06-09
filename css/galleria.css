@@ -23,6 +23,10 @@
     transition: opacity 300ms ease-in-out;
 }
 
+.modal-ventana h3 {
+    color: rgb(245, 245, 245);
+}
+
 .modal-ventana:target {
     opacity: 1;
     pointer-events: auto;
@@ -34,10 +38,10 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    border: thick double rgb(22, 22, 29);
-    border-radius: 0.5em;
+    border: thin double rgb(245, 245, 245);
+    border-radius: 0.25em;
     padding: 1em;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(15, 15, 15);
 }
 
 .modal-cerrarBtn {
@@ -84,4 +88,24 @@
     object-fit: cover;
     margin: 0 0 0 15em;
     scroll-snap-align: center;
+}
+
+.scrollX {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.sliderBtn {
+    border: 0;
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+    transition: transform 200ms ease-in-out, background-color 200ms ease-out;
+    font-size: 2em;
+}
+
+.sliderBtn:hover {
+    cursor: pointer;
+    transform: scale(1.5);
+    background-color: rgb(22, 22, 22);
 }
