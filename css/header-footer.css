@@ -1,5 +1,5 @@
 .container-header {
-  width: 100%;
+  width: 100vw;
   height: 50vh;
   display: flex;
   align-items: center;
@@ -20,6 +20,7 @@
   filter: grayscale(50%) contrast(150%);
 }
 
+/*backgrounds que se inyectan con js*/
 .index-bg {
   background-image: url(../assets/img/Necesarias/7ideal.jpg);
 }

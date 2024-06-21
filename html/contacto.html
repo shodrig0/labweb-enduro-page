@@ -7,14 +7,73 @@
   <title>Contacto</title>
   <link rel="stylesheet" href="../css/init.css" />
   <link rel="stylesheet" href="../css/header-footer.css" />
+  <link rel="stylesheet" href="../css/contacto.css">
   <link rel="icon" href="../favicon.png" />
 </head>
 
 <body>
   <div id="header"></div>
-  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+  <div class="containerContacto">
+    <div class="contenidoIzq">
+      <h3>Donaciones</h3>
+      <p>Si bien es cierto que poseo el sponsoreo de algunas empresas, podes colaborar con tu granito de arena y llevar
+        tu nombre estampado en mi moto!</p>
+      <form id="miFormulario">
+        <h5>Datos personales</h5>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre">
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" name="apellido">
+        <label for="apellido">Email:</label>
+        <input type="text" id="email" name="email">
+        <label for="billeterasVirtuales">Elegí con qué pagar:</label>
+        <select id="billeterasVirtuales" name="billeterasVirtuales">
+          <option value=""></option>
+          <option value="billetera1">Mercado Pago</option>
+          <option value="billetera2">Naranja X</option>
+          <option value="billetera3">Prex</option>
+          <option value="billetera4">Personal Pay</option>
+          <option value="billetera5">Ualá</option>
+        </select>
+        <h5>Datos de la tarjeta</h5>
+        <label for="numTarjeta">Número de la tarjeta:</label>
+        <input type="text" name="numTarjeta" id="numTarjeta">
+        <label for="codSeguridad">Código de seguridad:</label>
+        <input type="text" name="codSeguridad" id="codSeguridad">
+        <label for="fechaCaducidad">Fecha caducidad:</label>
+        <div class="date-inputs">
+          <input type="text" id="mes" name="mes" placeholder="Mes">
+          <input type="text" id="anio" name="anio" placeholder="Año">
+        </div>
+        <label for="monto">Monto <i>($ARS)</i>:</label>
+        <input type="text" name="monto" id="monto">
+        <label for="comentario">Dejá tu comentario acá <i>(opcional)</i> :</label>
+        <textarea id="comentario" name="comentario"></textarea>
+        <div id="divUsoOpcional" class="divUso"></div>
+        <input type="submit" value="Enviar" onclick="return aumentarPlata();">
+      </form>
+      <br />
+    </div>
+    <div class="contenidoDer">
+      <h3>Me verás surgir y caer</h3>
+      <div class="cajaRecaudacion">
+        <div class="monto" id="totalRecaudado">500000</div>
+      </div>
+    </div>
+  </div>
   <div id="footer"></div>
-  <script src="../js/header_footer.js"></script>
 </body>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    let form = document.getElementById('miFormulario')
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault()
+    })
+  })
+</script>
+<script src="../js/header_footer.js"></script>
+<script src="../js/formulario.js"></script>
 
 </html>

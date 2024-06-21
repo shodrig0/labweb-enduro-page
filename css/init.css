@@ -17,10 +17,11 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Poppins", sans-serif;
-  background-color: rgba(231, 231, 231);
+  background-color: rgb(249, 249, 249);
   scroll-behavior: smooth;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 h3 {
@@ -55,7 +56,8 @@ hr {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* background-color: rgb(231, 231, 231); */
+  background-color: rgb(249, 249, 249);
+  border-right: 0.05em solid rgba(0, 0, 0, 0.300);
 }
 
 /* contenido */

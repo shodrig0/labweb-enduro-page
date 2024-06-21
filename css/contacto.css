@@ -1,0 +1,86 @@
+#enunciado,
+form {
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    border-top: 0.05em solid rgba(0, 0, 0, 0.100);
+    border-left: 0.05em solid rgba(0, 0, 0, 0.100);
+    border-right: 0.1em solid rgba(0, 0, 0, 0.425);
+    border-bottom: 0.1em solid rgba(0, 0, 0, 0.425);
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="text"],
+select,
+textarea {
+    width: 95%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(204, 204, 204);
+    margin-bottom: 12px;
+}
+
+select {
+    height: 36px;
+}
+
+textarea {
+    height: 100px;
+}
+
+.date-inputs {
+    display: flex;
+    gap: 10px;
+}
+
+.date-inputs input[type="text"] {
+    width: 60px;
+}
+
+input[type="submit"] {
+    background-color: rgb(88, 199, 91);
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 300ms ease-in;
+}
+
+input[type="submit"]:hover {
+    background-color: rgb(53, 185, 57);
+}
+
+.containerContacto {
+    padding-left: 2em;
+    padding-right: 2em;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.contenidoIzq p {
+    width: 50%;
+    text-align: justify;
+}
+
+.contenidoDer {
+    width: 50%;
+}
+
+.divUso {
+    width: 95%;
+    margin-bottom: 0.5em;
+    padding: 0 0.5em;
+    border-radius: 5px;
+    border-top: 0.05em solid rgba(0, 0, 0, 0.100);
+    border-left: 0.05em solid rgba(0, 0, 0, 0.100);
+    border-right: 0.1em solid rgba(0, 0, 0, 0.425);
+    border-bottom: 0.1em solid rgba(0, 0, 0, 0.425);
+}
