@@ -13,16 +13,21 @@
 
 <body>
   <div id="header"></div>
-  <div class="container-mayor">
+
+  <audio id="corte" src="../assets/img/sound/corte.mp3" preload="auto"></audio>
+  <div class="container">
+    <canvas id="moto" class="pantallaJuego" width="640" height="400"></canvas>
+  </div>
+  <!-- <div class="container-mayor">
     <div class="container">
       <div id="moto" class="moto moto-funcionando"></div>
       <div id="piso" class="piso"></div>
       <div id="puntaje" class="puntaje">0</div>
     </div>
     <div class="game-over">FIN DEL JUEGO</div>
-  </div>
+  </div> -->
   <script src="../js/header_footer.js"></script>
-  <script src="/js/game.js"></script>
 </body>
+<script src="/js/game.js"></script>
 
 </html>

@@ -40,8 +40,7 @@ h3 {
 
 .logoInicio {
   margin: 0;
-  width: 7em;
-  height: 2.5em;
+  width: 8em;
 }
 
 hr {
@@ -57,7 +56,7 @@ hr {
   justify-content: center;
   align-items: center;
   background-color: rgb(249, 249, 249);
-  border-right: 0.05em solid rgba(0, 0, 0, 0.300);
+  /* border-right: 0.05em solid rgba(0, 0, 0, 0.300); */
 }
 
 /* contenido */
@@ -270,34 +269,78 @@ img:nth-child(5) {
   margin-left: 4em;
 }
 
-/* footer */
-.container-footer {
-  height: 5em;
-  background-color: rgba(22, 22, 29);
-}
-
 /* Sobre Mi*/
-/* .seccionSobreMi img {
+
+/*.seccionSobreMi img {
   width: 25em;
   height: 25em;
   object-fit: contain;
-  } */
+}*/
 
 .miHist {
+  padding: 0 2em;
+  /* position: relative; */
+  overflow: hidden;
   text-align: justify;
+}
+
+.miHist #aboutMe1 {
+  padding-top: 50px;
+  width: 60%;
+}
+
+.miHist .f1 {
+  float: right;
+  border-radius: 50%;
+  shape-outside: circle();
+  margin-left: 2em;
+}
+
+.miHist #aboutMe2 {
+  width: 60%;
+  overflow: hidden;
+}
+
+.miHist .f2 {
+  float: left;
+
 }
 
 .seccionSobreMi {
   width: 80%;
+  padding: 1em;
+  background-color: rgb(156, 255, 131);
+  position: relative;
+  display: flex;
   overflow: hidden;
 }
 
-.contenedorPicsAboutMe {
-  display: flex;
+.fotos-Stock {
+  aspect-ratio: 16/9;
+  object-fit: contain;
+  width: 50em;
 }
 
-.imgMia0 {
-  background-image: url('https://live.staticflickr.com/65535/53697495080_3dcb111b7b_o.jpg');
+.f1 {
+  aspect-ratio: 15/15;
+  object-fit: cover;
+  width: 35em;
+  object-position: center;
+}
+
+.contenedorPicsAboutMe {
+  padding: 0 0 2em 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contenedorPicsAboutMe div {
+  background-size: 120%;
+  margin: 0 2em 0 0;
+  background-repeat: no-repeat;
+  border-radius: 0.25em;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.774);
 }
 
 .imgMia1 {

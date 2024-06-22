@@ -2,8 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let totalRecaudado = localStorage.getItem('totalRecaudado')
     if (totalRecaudado) {
         document.getElementById('totalRecaudado').innerText = totalRecaudado
-    } else {
-        document.getElementById('totalRecaudado').innerText = '500000'
     }
 })
 
@@ -28,7 +26,6 @@ const expresiones = {
     // de 1 a 9
     montoCash: /^[1-9]\d*$/
 }
-
 
 /**
  * Insertamos una div, en el html, junto a una lista con los items a tener en cuenta
@@ -68,8 +65,53 @@ function fechaValida(mes, anio) {
     return fechaValida
 }
 
+let donador = {
+    nombre: document.getElementById('nombre').value,
+    apellido: document.getElementById('apellido').value,
+    email: document.getElementById('email').value,
+    monto: parseInt(document.getElementById('monto').value)
+}
+/**
+ * añade donadores
+ * @returns array
+ */
+function agregarDonador() {
+
+    let bandera
+
+    if (validar()) {
+        let colDonadores = JSON.parse(localStorage.getItem('colDonadores')) || []
+        colDonadores.push(donador)
+        localStorage.setItem('colDonadores', JSON.stringify(colDonadores))
+        bandera = true
+    }
+    return bandera
+}
+
+/**
+ * ranking
+ * @returns array
+ */
+function rankingDonadores() {
+    let colDonadores = JSON.parse(localStorage.getItem('colDonadores')) || []
+    colDonadores.sort((a, b) => b.monto - a.monto)
+    let rankingCOntainer = document.getElementById('ranking')
+    rankingCOntainer.innerHTML = ''
+    colDonadores.forEach((donador, i) => {
+        let rankingIndice = document.createElement('div')
+        rankingIndice.textContent = 'ranking'
+        rankingIndice.innerHTML = `${i + 1}. ${donador.nombre} ${donador.apellido} | Monto: ${donador.monto}ARS`
+        rankingCOntainer.appendChild(rankingIndice)
+    })
+}
+
+/**
+ * 
+ * @returns bool
+ */
 function aumentarPlata() {
 
+    let bandera = false
     if (validar()) {
         let montoBase = parseInt(document.getElementById('monto').value)
         let totalRecaudado = localStorage.getItem('totalRecaudado')
@@ -78,15 +120,33 @@ function aumentarPlata() {
             totalRecaudado = parseInt(totalRecaudado)
         } else {
             totalRecaudado = 0
-            document.getElementById('totalRecaudado').innerHTML = montoBase
         }
 
         totalRecaudado += montoBase
 
         localStorage.setItem('totalRecaudado', totalRecaudado)
         document.getElementById('totalRecaudado').innerHTML = totalRecaudado
+        bandera = true
+    }
+    return bandera
+}
+
+/**
+ * @returns void
+ */
+function msjObjetivo() {
+    let totalRecaudado = parseInt(localStorage.getItem('totalRecaudado')) || 0
+    let msjMetaFinal = document.getElementById('agradecimientoMetaCompleta')
+    let meta = 22000000
+
+    if (totalRecaudado >= meta) {
+        msjMetaFinal.style.display = 'block'
+    } else {
+        msjMetaFinal.style.display = 'none'
     }
 }
+
+msjObjetivo()
 
 /**
  * Función que ejecuta la lógica
@@ -189,11 +249,25 @@ function validar() {
         desPrintearInput('monto')
     }
 
+    let msjFinal = document.getElementById('agradecimiento')
+
     if (verificacion) {
-        alert("Funciona")
+        msjFinal.innerHTML = `Gracias por el aporte, ${nombre.value}!`
+        msjFinal.style.display = 'block'
+    } else {
+        msjFinal.style.display = 'none'
     }
 
     return verificacion
 }
 
 document.addEventListener('DOMContentLoaded', agregarMsjDiv, validar, aumentarPlata)
+
+/**
+ * esta dispara los errores de los inputs
+ * document.addEventListener('DOMContentLoaded', () => {
+    agregarMsjDiv()
+    validar()
+    aumentarPlata()
+})
+ */

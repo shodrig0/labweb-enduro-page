@@ -1,236 +1,234 @@
-// funcionamiento del juego
-
 /**
- * loop del juego
+ * https://developer.mozilla.org/es/docs/Web/API/HTMLCanvasElement/getContext
+ * usar canvas -> pantalla
  */
 
-let tiempo = new Date(); // inicializar el tiempo actual
-let acumTiempo = 0; // guardamos el tiempo en segudnos que transcurren entre fotogramas
+const motoFigura = document.getElementById("moto");
+const contexto = motoFigura.getContext("2d"); // crea el obj
+const sonidoCorte = document.getElementById("corte");
 
-/**
- * https://developer.mozilla.org/en-US/docs/Web/API/Document/readyState#values
- *
- * comprobar si carga todo el elemento html
- * si cargó, se llama a la función Init() esperando un 1 segundo
- * sino se ejecuta el DOMContentLoaded
- * evento DOM de js que se ejecuta cuando se carga todo el html pero antes de que carguen scripts o imgs
- * https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event
- */
-if (
-  document.readyState === "complete" ||
-  document.readyState === "interactive"
-) {
-  setTimeout(iniciar, 1);
-} else {
-  document.addEventListener("DOMContentLoaded", iniciar);
-}
-
-/**
- * la funcion utiloizada cuando el html carga
- * se reinicia la variable tiempo
- */
-function iniciar() {
-  tiempo = new Date();
-  start();
-  loop();
-}
-
-function loop() {
-  acumTiempo = (new Date() - tiempo) / 1000;
-  tiempo = new Date();
-  desplazamiento();
-  requestAnimationFrame(loop);
-}
-
-/**
- * logica
- */
-
-// declaracion de variables
-// stats sacadas del dinosaurio, modificar si generan provblemas con el render de la moto
-let terrenoY = 22;
-let velocidadY = 0;
-let impulso = 900;
-let gravedad = 2500;
-
-let motoPosX = 42;
-let motoPosY = terrenoY;
-
-let terrenoX = 0;
-let velocidadEscenario = 1280 / 3;
-let velocidadJuego = 1;
-let puntaje = 0;
-
-let parado = false; // juego -- usar en desplazamiento()
-let saltando = false; // moto
-
-let tiempoCactusRocas = 2;
-let tiempoCactusRocasMin = 0.7;
-let tiempoCactusRocasMax = 1.8;
-let cactusRocasPosicionY = 16;
-let colCactusRocas = [];
-
-/**
- * inicializar juego
- * se usa document.querySelector para seleccionar las classes del css
- * https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector
- */
-
-let container;
+// variables
+let puntaje;
+let txtPuntaje;
+let mayorPuntaje;
+let txtMayorPuntaje;
 let moto;
-let txtDelPuntaje;
-let terreno;
-let derrota;
-
-function start() {
-  derrota = document.querySelector(".game-over");
-  terreno = document.querySelector(".piso");
-  container = document.querySelector(".container");
-  txtDelPuntaje = document.querySelector(".puntaje");
-  moto = document.querySelector(".moto");
-  document.addEventListener("click", jugabilidad);
-}
-
-// funcion para desplazarse, desplaza el fondo
-function desplazamiento() {
-  if (parado) return;
-
-  moverMoto();
-  moverTerreno();
-  creacionObstaculo();
-  moverObstaculos();
-  //detectorDeColision()
-
-  velocidadY = velocidadY - gravedad * acumTiempo;
-}
-
-// mecanica juego para saltar hace falta o ejecuto directo?
-function jugabilidad() {
-  saltar();
-}
-
-// cada vez que salte la animación debe parar
-function saltar() {
-  if (motoPosY == terrenoY) {
-    saltando = true;
-    velocidadY = impulso;
-    moto.classList.remove("moto-funcionando");
-  }
-}
+let gravedad;
+let colCactusRocas = [];
+let velocidad;
+let controles = {};
 
 /**
- * mover la moto en y
- * moto.style.bottom actualiza bottom (abajo) de css
- * + px es lo que mueve a la moto en el display
+ * https://developer.mozilla.org/es/docs/Web/API/Event
  */
-function moverMoto() {
-  motoPosY += velocidadY * acumTiempo;
-  if (motoPosY < terrenoY) {
-    motoEnTerreno();
-  }
-  moto.style.bottom = motoPosY + "px";
-}
 
-/**
- * cuando la moto esté en tierra se le asigna el valor del terreno asi está en la misma posicion del suelo
- * la velocidad se asigna en 0 para parar el movimiento vertical
- */
-function motoEnTerreno() {
-  motoPosY = terrenoY;
-  velocidadY = 0;
-
-  // si la variable saltando es false, significa que está en tierra y ejecuta la animacion
-  if (saltando) {
-    moto.classList.add("moto-funcionando");
-  }
-  saltando = false;
-}
-
-/**
- * mover el terreno
- * la primera operacion mueve el piso hacia la izq
- */
-function moverTerreno() {
-  terrenoX += calcDesplazamientoMoto();
-  terreno.style.left = -(terrenoX % container) + "px";
-}
-
-/**
- * como calcular el desplazamiento
- * https://www.youtube.com/watch?v=cYNrWCWgieU
- */
-function calcDesplazamientoMoto() {
-  resultado = velocidadEscenario * acumTiempo * velocidadJuego; // creo que es asi
-
-  return resultado;
-}
-
-/**
- * chocar
- * agregar un frame cuando pase esto
- */
-function chocar() {
-  moto.classList.remove("moto-funcionando");
-  parado = true;
-}
-
-function tiempoCreacionObstaculo() {
-  tiempoCactusRocas -= acumTiempo;
-  if (tiempoCactusRocas <= 0) {
-    creacionObstaculo();
-  }
-}
-
-/**
- * https://desarrolloweb.com/articulos/763.php
- * obstaculoC es cactus
- */
-function creacionObstaculo() {
-  let obstaculo = document.createElement("div");
-  container.appendChild(obstaculo); // agrego al container el obstaculo, declarado en la variable obstaculo
-  obstaculo.classList.add("cactus");
-  if (Math.random() > 0.5) {
-    obstaculo.classList.add("rocas");
-  }
-  obstaculo.motoPosX = container;
-  obstaculo.style.left = container.clientWidth + "px";
-
-  // agrego al array
-  colCactusRocas.push(obstaculo);
-}
-
-// mover rocas o cactus
-// itero el array en decrecimiento
-// como mostrar y confirmar que ya se pasaron por encima los otros obstaculos
-function moverObstaculos() {
-  for (let i = colCactusRocas.length - 1; i >= 0; i--) {
-    if (colCactusRocas[i].offsetLeft < -colCactusRocas[i].offsetWidth) {
-      colCactusRocas[i].parentNode.removeChild(colCactusRocas[i]);
-      colCactusRocas.splice(i, 1);
-      puntos();
-    } else {
-      colCactusRocas[i].style.left =
-        colCactusRocas[i].offsetLeft - calcDesplazamientoMoto() + "px";
-      colCactusRocas[i].style.left = colCactusRocas[i].motoPosX + "px";
+document.addEventListener("keydown", function (evento) {
+    controles[evento.code] = true;
+    if (controles["KeyS"] || controles["ShiftLeft"]) {
+        sonidoCorte.currentTime = 0;
+        sonidoCorte.play();
     }
-  }
+});
+
+document.addEventListener("keyup", function (evento) {
+    controles[evento.code] = false;
+});
+
+/**
+ * es mejor manejar objs
+ */
+class Moto {
+    constructor(posX, posY, ancho, alto, color) {
+        this.posX = posX;
+        this.posY = posY;
+        this.ancho = ancho;
+        this.alto = alto;
+        this.color = color;
+
+        this.velY = 0;
+        this.saltoFuerza = 15;
+        this.alturaVerdadera = alto;
+        this.noAlPiso = false;
+        this.contadorS = 0;
+    }
+
+    Animar() {
+        if (controles["KeyW"]) {
+            this.Saltar();
+        } else {
+            this.contadorS = 0;
+        }
+
+        this.posY += this.velY;
+
+        if (this.posY + this.alto < motoFigura.height) {
+            this.velY += gravedad;
+            this.noAlPiso = false;
+        } else {
+            this.velY = 0;
+            this.noAlPiso = true;
+            this.posY = motoFigura.height - this.alto;
+        }
+
+        this.Dibujo();
+    }
+
+    Saltar() {
+        if (this.noAlPiso && this.contadorS == 0) {
+            this.contadorS = 1;
+            this.velY = -this.saltoFuerza;
+        } else if (this.contadorS > 0 && this.contadorS < 15) {
+            this.contadorS++;
+            this.velY = -this.saltoFuerza - this.contadorS / 50;
+        }
+    }
+
+    /**
+     * https://developer.mozilla.org/es/docs/Web/API/CanvasRenderingContext2D/beginPath
+     * https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fillStyle
+     * https://developer.mozilla.org/es/docs/Web/API/CanvasRenderingContext2D/fillRect
+     * https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/closePath
+     */
+
+    Dibujo() {
+        contexto.beginPath();
+        contexto.fillStyle = this.color;
+        contexto.fillRect(this.posX, this.posY, this.ancho, this.alto);
+        contexto.closePath();
+    }
 }
 
-function puntos() {
-  puntaje++;
-  txtDelPuntaje.innerText = puntaje;
+class Obstaculos {
+    constructor(posX, posY, ancho, alto, color) {
+        this.posX = posX;
+        this.posY = posY;
+        this.ancho = ancho;
+        this.alto = alto;
+        this.color = color;
 
-  if (puntaje == 5) {
-    velocidadJuego = 1;
-    container.classList.add("dia");
-  } else if (puntaje == 15) {
-    velocidadJuego = 3;
-    container.classList.add("noche");
-  }
-  terreno.style.animationDuration = 3 / velocidadJuego + "s";
+        this.velX = -velocidad;
+    }
+
+    Generar() {
+        this.posX += this.velX;
+        this.Dibujo();
+        this.velX = -velocidad;
+    }
+
+    Dibujo() {
+        contexto.beginPath();
+        contexto.fillStyle = this.color;
+        contexto.fillRect(this.posX, this.posY, this.ancho, this.alto);
+        contexto.closePath();
+    }
 }
 
-function gameOver() {
-  chocar();
-  derrota.style.display = "block";
+class Txt {
+    constructor(txt, posX, posY, alineacion, color, fontSize) {
+        this.txt = txt;
+        this.posX = posX;
+        this.posY = posY;
+        this.alineacion = alineacion;
+        this.color = color;
+        this.fontSize = fontSize;
+    }
+
+    Dibujo() {
+        contexto.beginPath();
+        contexto.fillStyle = this.color;
+        contexto.font = this.fontSize + "px monospace";
+        contexto.textAlign = this.alineacion;
+        contexto.fillText(this.txt, this.posX, this.posY);
+        contexto.closePath();
+    }
 }
+
+function GeneracionObstaculos() {
+    let tamanio = numerosRandoms(20, 70);
+    let tipo = numerosRandoms(0, 1);
+    let obstaculo = new Obstaculos(motoFigura.width + tamanio, motoFigura.height - tamanio, tamanio, tamanio, '#2484E4');
+
+    if (tipo == 1) {
+        obstaculo.y -= moto.originalHeight - 10;
+    }
+    colCactusRocas.push(obstaculo);
+}
+
+function numerosRandoms(min, max) {
+    let resultado = Math.round(Math.random() * (max - min) + min);
+    return resultado;
+}
+
+function Start() {
+    motoFigura.width = window.innerWidth;
+    motoFigura.height = window.innerHeight;
+
+    contexto.font = "20px monospace";
+
+    velocidad = 3;
+    gravedad = 1;
+    puntaje = 0;
+    mayorPuntaje = 0;
+
+    if (localStorage.getItem("mayorPuntaje")) {
+        mayorPuntaje = localStorage.getItem("mayorPuntaje");
+    }
+
+    moto = new Moto(25, 0, 50, 50, "#135da8");
+
+    txtPuntaje = new Txt("Puntaje: " + puntaje, 25, 25, "left", "#212121", "20");
+    txtMayorPuntaje = new Txt("Puntaje max: " + mayorPuntaje, motoFigura.width - 25, 25, "right", "#212121", "20");
+
+    requestAnimationFrame(Generar)
+}
+
+let cronometro = 200;
+let cronometroSpaw = cronometro;
+
+function Generar() {
+    requestAnimationFrame(Generar);
+    contexto.clearRect(0, 0, motoFigura.width, motoFigura.height);
+
+    cronometroSpaw--;
+    if (cronometroSpaw <= 0) {
+        GeneracionObstaculos();
+        console.log(colCactusRocas);
+        cronometroSpaw = cronometro - velocidad * 8;
+
+        if (cronometroSpaw < 60) {
+            cronometroSpaw = 60;
+        }
+    }
+
+    for (let i = 0; i < colCactusRocas.length; i++) {
+        let obs = colCactusRocas[i];
+
+        if (obs.posX + obs.ancho < 0) {
+            colCactusRocas.splice(i, 1);
+        }
+
+        if (moto.posX < obs.ancho && moto.posX + moto.ancho > obs.posX && moto.posY < obs.posY + obs.alto && moto.posY + moto.alto > obs.posY) {
+            colCactusRocas = [];
+            puntaje = 0;
+            cronometroSpaw = cronometro;
+            velocidad = 3;
+            window.localStorage.setItem("mayorPuntaje", mayorPuntaje);
+        }
+        obs.Generar();
+    }
+    moto.Animar();
+    puntaje++;
+    txtPuntaje.txt = "Puntaje: " + puntaje;
+    txtPuntaje.Dibujo();
+
+    if (puntaje > mayorPuntaje) {
+        mayorPuntaje = puntaje;
+        txtMayorPuntaje.txt = "Puntaje max: " + mayorPuntaje;
+    }
+
+    txtMayorPuntaje.Dibujo();
+
+    velocidad += 0.003;
+}
+
+Start();

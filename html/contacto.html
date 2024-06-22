@@ -18,7 +18,7 @@
     <div class="contenidoIzq">
       <h3>Donaciones</h3>
       <p>Si bien es cierto que poseo el sponsoreo de algunas empresas, podes colaborar con tu granito de arena y llevar
-        tu nombre estampado en mi moto!</p>
+        tu nombre estampado en mi indumentaria!</p>
       <form id="miFormulario">
         <h5>Datos personales</h5>
         <label for="nombre">Nombre:</label>
@@ -51,15 +51,25 @@
         <label for="comentario">Dejá tu comentario acá <i>(opcional)</i> :</label>
         <textarea id="comentario" name="comentario"></textarea>
         <div id="divUsoOpcional" class="divUso"></div>
-        <input type="submit" value="Enviar" onclick="return aumentarPlata();">
+        <input type="submit" value="Donar" onclick="return aumentarPlata();">
       </form>
       <br />
     </div>
     <div class="contenidoDer">
-      <h3>Me verás surgir y caer</h3>
       <div class="cajaRecaudacion">
-        <div class="monto" id="totalRecaudado">500000</div>
+        <div class="meta">
+          <label for="meta_">Meta</label>
+          <div id="meta_">22000000</div>
+        </div>
+        <div class="recaudado">
+          <label for="progreso">Recaudado</label>
+          <div id="totalRecaudado">0</div>
+        </div>
+        <div id="agradecimiento" class="agradecimiento"></div>
+        <div id="agradecimientoMetaCompleta" class="agradecimientoMetaCompleta">Objetivo cumplido! Todos los nombres los
+          llevo en cada carrera 😃</div>
       </div>
+      <div id="ranking" class="ranking"></div>
     </div>
   </div>
   <div id="footer"></div>

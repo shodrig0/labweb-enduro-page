@@ -148,3 +148,34 @@
   transform-origin: left;
   transform: scaleX(1);
 }
+
+/* footer */
+.container-footer {
+  margin-top: 5em;
+  height: 20vh;
+  background-color: rgb(22, 25, 27);
+  color: rgb(255, 255, 255);
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.container-footer span {
+  color: rgb(255, 255, 255);
+}
+
+.copyright {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  bottom: 0.5em;
+}
+
+.copyright span {
+  font-size: 1em;
+}
+
+/* .copyright a {
+  text-decoration: none;
+} */
