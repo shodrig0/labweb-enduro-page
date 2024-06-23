@@ -162,7 +162,7 @@ img:nth-child(5) {
   margin: 0 auto;
   width: 22em;
   height: 22em;
-  background-image: url(/assets/img/Necesarias/sobreMI.jpg);
+  background-image: url(../assets/img/Necesarias/sobreMI.jpg);
   background-size: 170%;
   background-position: center;
   border-radius: 50%;
@@ -173,7 +173,7 @@ img:nth-child(5) {
   margin: 0 auto;
   width: 22em;
   height: 22em;
-  background-image: url(/assets/img/Necesarias/miniaturaGaleria.jpg);
+  background-image: url(../assets/img/Necesarias/miniaturaGaleria.jpg);
   background-size: cover;
   background-position: top center;
   border-radius: 50%;

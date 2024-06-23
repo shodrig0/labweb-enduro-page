@@ -34,17 +34,17 @@ function fondoRandom() {
   const bgRuta = window.location.pathname;
 
   let bgCambianteClase;
-  if (bgRuta.includes("index.html")) {
+  if (bgRuta.includes("/index.html")) {
     bgCambianteClase = "index-bg";
-  } else if (bgRuta.includes("galeria.html")) {
+  } else if (bgRuta.includes("/galeria.html")) {
     bgCambianteClase = "galeria-bg";
-  } else if (bgRuta.includes("sobreEnduro.html")) {
+  } else if (bgRuta.includes("/sobreEnduro.html")) {
     bgCambianteClase = "sobreEnd-bg";
-  } else if (bgRuta.includes("sobreMi.html")) {
+  } else if (bgRuta.includes("/sobreMi.html")) {
     bgCambianteClase = "sobreMi-bg";
-  } else if (bgRuta.includes("contacto.html")) {
+  } else if (bgRuta.includes("/contacto.html")) {
     bgCambianteClase = "contacto-bg"
-  } else if (bgRuta.includes("game.html")) {
+  } else if (bgRuta.includes("/game.html")) {
     bgCambianteClase = "game-bg";
   }
 
