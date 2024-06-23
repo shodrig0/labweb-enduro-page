@@ -1,16 +1,71 @@
-/* Sobre Mi*/
-
-/*.seccionSobreMi img {
-  width: 25em;
-  height: 25em;
-  object-fit: contain;
-}*/
-
 .miHist {
-    padding: 0 2em;
-    /* position: relative; */
+    margin: 2em 0;
+    padding: 2em 2em;
     overflow: hidden;
     text-align: justify;
+    max-width: 100%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.247);
+    border-radius: 0.25em;
+}
+
+.miHist img {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.096);
+    border-radius: 0.25em;
+}
+
+.contIzq {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 0 2em;
+}
+
+.contIzq p {
+    width: 60%;
+    padding: 0 2em;
+}
+
+.contIzq img {
+    width: 25em;
+}
+
+.contIzq h4 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-left: 2em;
+}
+
+.contDer {
+    margin: 3em 0;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 0 2em;
+}
+
+.contDer img {
+    width: 25em;
+}
+
+.contDer p {
+    width: 100%;
+    padding-right: 2em;
+}
+
+.contDer h4 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-right: 2em;
+}
+
+.contCent h4 {
+    text-align: center;
 }
 
 .seccionSobreMi {
@@ -21,98 +76,23 @@
     overflow: hidden;
 }
 
-.fotos-Stock {
-    aspect-ratio: 16/9;
-    object-fit: contain;
-    width: 50em;
-}
-
-.f1 {
-    aspect-ratio: 15/15;
-    object-fit: cover;
-    width: 35em;
-    object-position: center;
-}
-
-.imgMia1 {
-    background-image: url('https://live.staticflickr.com/65535/53697058816_a228999a81_o.jpg');
-}
-
-.imgMia2 {
-    background-image: url('https://live.staticflickr.com/65535/53696167367_30f3df6630_o.jpg');
-}
-
-.imgMia3 {
-    background-image: url('https://live.staticflickr.com/65535/53696167357_4ef58f840d_o.jpg"');
-}
-
-.imgMia4 {
-    background-color: chartreuse;
-}
-
-.imgMia5 {
-    background-color: crimson;
-}
-
-.fotoAboutMe {
-    width: 25em;
-    height: 25em;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-clip: padding-box;
-    background-position: center center;
-}
-
 .contenedorPicsAboutMe {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 100%;
-    height: 35em;
-    overflow: hidden;
+    width: 600px;
+    height: 430px;
 }
 
 .contenedorPicsAboutMe img {
-    width: auto;
-    max-width: 100%;
-    height: 30em;
-    max-height: 100%;
-    border-radius: 0.25em;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.700);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    animation: diapo 10s infinite;
+    width: 0px;
+    flex-grow: 1;
+    object-fit: cover;
+    opacity: 0.9;
+    transition: .5s ease-in-out;
 }
 
-.contenedorPicsAboutMe img:nth-child(2) {
-    animation-delay: 3s;
-}
-
-.contenedorPicsAboutMe img:nth-child(3) {
-    animation-delay: 6s;
-}
-
-@keyframes diapo {
-
-    0%,
-    33% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-    }
-
-    33%,
-    66% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(1.1);
-    }
-
-    66%,
-    100% {
-        opacity: 0;
-    }
-
+.contenedorPicsAboutMe img:hover {
+    cursor: zoom-in;
+    width: 300px;
+    opacity: 1;
+    filter: contrast(120%);
 }
