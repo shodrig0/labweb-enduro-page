@@ -9,8 +9,13 @@
   justify-content: space-around;
   position: relative;
   overflow: hidden;
+  /* Evita el desbordamiento de contenido */
   box-sizing: border-box;
+  /* Incluye el padding y border en el tamaño del contenedor */
+  padding-top: 50px;
+  /* Ajusta para acomodar la altura del SVG */
 }
+
 
 .bg-img {
   position: absolute;
@@ -58,12 +63,18 @@
   position: absolute;
   top: 25px;
   z-index: 0;
+  left: 0;
+  right: 0;
+  height: auto;
 }
 
 .efecto-h svg {
   width: 100%;
   height: auto;
+  display: block;
+  min-height: 50px;
 }
+
 
 /* nav */
 .navClass {
