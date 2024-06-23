@@ -1,0 +1,105 @@
+.explicacionEnduro {
+    text-align: justify;
+    padding: 0.5em;
+}
+
+.seccionEnd {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .seccionEnd #p1,
+#p3,
+#p5 {
+    background-color: rgb(255, 255, 255);
+    width: 50%;
+    align-self: flex-end;
+    border: 2px dotted rgb(0, 0, 0);
+}
+
+.seccionEnd #p2,
+#p4,
+#p6 {
+    background-color: rgb(255, 255, 255);
+    width: 50%;
+    align-self: flex-start;
+    border: 2px dotted rgb(0, 0, 0);
+} */
+
+.ladoIzq {
+    margin: 5em auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.ladoIzq p {
+    width: 50%;
+    padding-left: 2em;
+}
+
+.ladoIzq div {
+    shape-outside: circle();
+}
+
+
+.ladoDer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.ladoDer p {
+    width: 50%;
+    padding-right: 2em;
+}
+
+.imgEnd1,
+.imgEnd2,
+.imgEnd3,
+.imgEnd4,
+.imgEnd5 {
+    width: 25em;
+    height: 25em;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 0.5em;
+    border-radius: 50%;
+    border: 2px solid rgb(0, 0, 0);
+}
+
+.imgEnd1 {
+    background-image: url('https://live.staticflickr.com/65535/53696167637_2b48d000ce_o.jpg');
+    /* align-self: flex-start; */
+    /* margin-left: 4em;*/
+}
+
+.imgEnd2 {
+    background-image: url('https://live.staticflickr.com/65535/53697059106_ae7a857ab1_o.jpg');
+    /* align-self: flex-end; */
+    /* margin-right: 4em; */
+}
+
+.imgEnd3 {
+    background-image: url('https://live.staticflickr.com/65535/53697263988_3af83a688b_o.jpg');
+    /* align-self: flex-start; */
+    /* margin-left: 4em; */
+}
+
+.imgEnd4 {
+    background-image: url('https://live.staticflickr.com/65535/53697054886_6492810f1a_o.jpg');
+    /* align-self: flex-end; */
+    /* margin-right: 4em; */
+}
+
+.imgEnd5 {
+    background-image: url('https://live.staticflickr.com/65535/53697494700_57954beb50_o.jpg');
+    /* align-self: flex-start; */
+    /* margin-left: 4em; */
+}
