@@ -8,14 +8,7 @@
   align-items: center;
   justify-content: space-around;
   position: relative;
-  overflow: hidden;
-  /* Evita el desbordamiento de contenido */
-  box-sizing: border-box;
-  /* Incluye el padding y border en el tamaño del contenedor */
-  padding-top: 50px;
-  /* Ajusta para acomodar la altura del SVG */
 }
-
 
 .bg-img {
   position: absolute;
@@ -57,25 +50,6 @@
   background-image: url(../assets/img/Necesarias/4ideal.jpg);
 }
 
-.efecto-h {
-  width: 100%;
-  overflow: hidden;
-  position: absolute;
-  top: 25px;
-  z-index: 0;
-  left: 0;
-  right: 0;
-  height: auto;
-}
-
-.efecto-h svg {
-  width: 100%;
-  height: auto;
-  display: block;
-  min-height: 50px;
-}
-
-
 /* nav */
 .navClass {
   z-index: 2;
@@ -90,9 +64,8 @@
   justify-content: space-around;
   align-items: center;
   position: relative;
-  transform: rotate(12.5deg);
-  transform-origin: top left;
-  top: 50px;
+  /* transform-origin: top left; */
+  top: 0;
   left: -200px;
 }
 
@@ -101,10 +74,9 @@
   justify-content: space-around;
   align-items: center;
   position: relative;
-  transform: rotate(-18.5deg);
-  transform-origin: top right;
-  top: 20px;
-  left: 120px;
+  /* transform-origin: top right; */
+  top: 0;
+  left: 200px;
 }
 
 .navClass ul {
