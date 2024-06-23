@@ -80,14 +80,12 @@
   .navClass .segunda-parte {
     flex-direction: column;
     gap: 10px;
-    /* Ajusta el espacio entre elementos */
     align-items: center;
     width: 100%;
   }
 
   .navClass li {
     margin-bottom: 10px;
-    /* Espacio entre elementos de la lista */
   }
 }
 
