@@ -37,15 +37,15 @@ function fondoRandom() {
   if (bgRuta.includes("/index.html")) {
     bgCambianteClase = "index-bg";
   } else if (bgRuta.includes("/galeria.html")) {
-    bgCambianteClase = "galeria-bg";
+    bgCambianteClase = "index-bg";
   } else if (bgRuta.includes("/sobreEnduro.html")) {
-    bgCambianteClase = "sobreEnd-bg";
+    bgCambianteClase = "index-bg";
   } else if (bgRuta.includes("/sobreMi.html")) {
-    bgCambianteClase = "sobreMi-bg";
+    bgCambianteClase = "sobreEnd-bg";
   } else if (bgRuta.includes("/contacto.html")) {
-    bgCambianteClase = "contacto-bg"
+    bgCambianteClase = "sobreEnd-bg"
   } else if (bgRuta.includes("/game.html")) {
-    bgCambianteClase = "game-bg";
+    bgCambianteClase = "sobreEnd-bg";
   }
 
   bgRandom.classList.add(bgCambianteClase);

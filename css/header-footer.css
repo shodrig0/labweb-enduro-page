@@ -20,7 +20,7 @@
   max-height: 1080px;
   z-index: -1;
   background-size: cover;
-  background-position: 0 -100px;
+  background-position: 0 -80px;
   background-repeat: no-repeat;
   filter: grayscale(50%) contrast(150%);
 }
@@ -30,24 +30,8 @@
   background-image: url(../assets/img/Necesarias/7ideal.jpg);
 }
 
-.galeria-bg {
-  background-image: url(../assets/img/Necesarias/8ideal.jpg);
-}
-
 .sobreEnd-bg {
   background-image: url(../assets/img/Necesarias/3ideal.jpg);
-}
-
-.sobreMi-bg {
-  background-image: url(../assets/img/Necesarias/10ideal.jpg);
-}
-
-.contacto-bg {
-  background-image: url(../assets/img/Necesarias/5ideal.jpg);
-}
-
-.game-bg {
-  background-image: url(../assets/img/Necesarias/4ideal.jpg);
 }
 
 /* nav */
@@ -67,6 +51,7 @@
   /* transform-origin: top left; */
   top: 0;
   left: -200px;
+  gap: 20px;
 }
 
 .navClass .segunda-parte {
@@ -77,6 +62,33 @@
   /* transform-origin: top right; */
   top: 0;
   left: 200px;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .navClass {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navClass ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navClass .primera-parte,
+  .navClass .segunda-parte {
+    flex-direction: column;
+    gap: 10px;
+    /* Ajusta el espacio entre elementos */
+    align-items: center;
+    width: 100%;
+  }
+
+  .navClass li {
+    margin-bottom: 10px;
+    /* Espacio entre elementos de la lista */
+  }
 }
 
 .navClass ul {
