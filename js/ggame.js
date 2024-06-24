@@ -3,9 +3,9 @@ const cactus = document.getElementById('cactus')
 const rocas = document.getElementById('rocas')
 const derrota = document.querySelector('.game-over')
 const play = document.getElementById('playbtn')
+const puntaje = document.getElementById('puntaje')
 const reinicio = document.getElementById('restartbtn')
 const home = document.getElementById('homebtn')
-const contador = document.getElementById('contador')
 const guardarNombre = document.getElementById('guardar-nombre')
 const nombreInput = document.getElementById('nombre')
 const guardarBtn = document.getElementById('guardar-btn')
@@ -16,9 +16,10 @@ let velocidadY = 2 // velocidad en y (vertical)
 let gravedad = 1.2 // ajustar
 let saltando = false
 let enSuelo = true
-let tiempo = 0
+let conteo = 0
+let tiempoInicio = 0;
 let intervaloT
-let actualizar
+
 
 function iniciarJuego() {
     if (juegoIniciado) return // para evitar que el juego se inicie mas de una vez
@@ -33,24 +34,13 @@ function iniciarJuego() {
     cactus.style.animation = '0px'
     rocas.style.animation = 'obstaculo 4s infinite linear'
     rocas.style.right = '0px'
-    // tiempo = 0
-    intervaloT = Date.now()
+    conteo = 0
+    tiempoInicio = Date.now();
+    intervaloT = setInterval(actualizarTiempo, 1000);
     actualizarJuego()
-
-    /*colision = setInterval(function () {
-        if (motoColision(moto, cactus, 5, 10, 0, 10)) {  // ajustar las distancias
-            detenerJuego()
-        }
-    }, 10)*/
-}
-
-function actualizarContador(x) {
-    let tiempoTranscurrido = (x - intervaloT) / 1000
-    contador.innerText = `Tiempo: ${tiempoTranscurrido.toFixed(0)}s`
 }
 
 function actualizarJuego() {
-
 
     velocidadY += gravedad
 
@@ -74,14 +64,12 @@ function actualizarJuego() {
         detenerJuego()
 
     } else if (motoColision(moto, rocas, 20, 30, 0, 5)) {
-        detenerJuego();
+        detenerJuego()
     } else {
         requestAnimationFrame(actualizarJuego)
     }
 
-    actualizarContador(currentTime)
 }
-
 
 function reiniciarJuego() {
     location.reload() // recarga la pagina
@@ -116,6 +104,7 @@ function detenerAnimaciones() {
 
 function detenerJuego() {
     clearInterval(colision)
+    clearInterval(intervaloT)
     detenerAnimaciones()
     derrota.style.display = 'block'
     reinicio.style.display = 'block'
@@ -132,6 +121,11 @@ function motoColision(moto, cactus, arriba, derecha, abajo, izquierda) {
         (rectMoto.left + rectMoto.width - derecha) > rectCactus.left &&
         (rectMoto.left + izquierda < rectCactus.left + rectCactus.width)
     )
+}
+
+function actualizarTiempo() {
+    let tiempoTranscurrido = Math.floor((Date.now() - tiempoInicio) / 1000); // Calcular el tiempo transcurrido en segundos
+    puntaje.innerHTML = `${tiempoTranscurrido}`;
 }
 
 play.addEventListener('click', function () {
