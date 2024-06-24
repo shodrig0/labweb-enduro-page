@@ -7,19 +7,24 @@
 }
 
 .container {
-  width: 100vw;
+  width: 50vw;
   height: 50vh;
   margin: 0 auto;
   position: relative;
-  background: linear-gradient(rgb(255, 255, 255) 0 30%,
-      rgb(247, 168, 137) 95% 100%);
+  background: url(../assets/img/Default_Cielo_del_desierto_de_un_atardecer_estilo_manga_Jojos_2.jpg);
+
+  background-repeat: no-repeat;
+  background-size: 140%;
+  background-position: center;
+  overflow: hidden;
 }
 
 .moto {
   width: 84px;
   height: 84px;
   position: absolute;
-  bottom: 25px;
+  /* bottom: 25px; */
+  top: 215px;
   left: 42px;
   z-index: 2;
   background: url(../assets/img/spriteanimar.png) repeat-x 0 0;
@@ -35,9 +40,65 @@
   background-position: -262px;
 }
 
+.salto {
+  /* animation: salto 500ms infinite; */
+}
+
+/*@keyframes salto {
+  0% {
+    top: 215px;
+  }
+
+  20% {
+    top: 40px;
+  }
+
+  40% {
+    top: 0px;
+  }
+
+  50% {
+    top: 10px;
+  }
+
+  60% {
+    top: 10px;
+  }
+
+  80% {
+    top: 50px;
+  }
+
+  100% {
+    top: 215px;
+  }
+}*/
+
+@keyframes salto {
+  0% {
+    top: 215px;
+  }
+
+  20% {
+    top: 100px;
+  }
+
+  50% {
+    top: 50px;
+  }
+
+  80% {
+    top: 100px;
+  }
+
+  100% {
+    top: 215px;
+  }
+}
+
 .piso {
   width: 200%;
-  height: 42px;
+  height: 30px;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -50,16 +111,32 @@
   width: 46px;
   height: 96px;
   position: absolute;
-  bottom: 16px;
-  left: 600px;
-  z-index: 1;
+  bottom: -10px;
+  right: -100%;
+  z-index: 2;
   background: url(../assets/img/cactusrenderF.png) no-repeat;
+  animation: none;
 }
 
 .rocas {
   width: 98px;
   height: 66px;
+  position: absolute;
+  bottom: 0px;
+  right: -100%;
+  z-index: 2;
   background: url(../assets/img/rocas.png) no-repeat;
+  animation: none;
+}
+
+@keyframes obstaculo {
+  0% {
+    left: 1500px;
+  }
+
+  100% {
+    left: -20px;
+  }
 }
 
 .puntaje {
@@ -101,28 +178,13 @@
   }
 }
 
-/* .salto {
-  animation: salto 0.25s steps(5) infinite;
+#controles {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  right: 0;
 }
 
-@keyframes salto {
-  0% {
-    top: 230px;
-  }
-
-  30% {
-    top: 150px;
-  }
-
-  50% {
-    top: 100px;
-  }
-
-  80% {
-    top: 150px;
-  }
-
-  100% {
-    top: 230px;
-  }
-} */
+#controles button {
+  margin: 2em;
+}

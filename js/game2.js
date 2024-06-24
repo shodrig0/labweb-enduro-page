@@ -93,13 +93,13 @@ function start() {
 
 // funcion para desplazarse, desplaza el fondo
 function desplazamiento() {
-  if (parado) return;
+  if (parado) return
 
-  moverMoto();
-  moverTerreno();
-  creacionObstaculo();
-  moverObstaculos();
-  //detectorDeColision()
+  moverMoto()
+  moverTerreno()
+  creacionObstaculo()
+  moverObstaculos()
+  colision()
 
   velocidadY = velocidadY - gravedad * acumTiempo;
 }
@@ -186,17 +186,18 @@ function tiempoCreacionObstaculo() {
  * obstaculoC es cactus
  */
 function creacionObstaculo() {
-  let obstaculo = document.createElement("div");
-  container.appendChild(obstaculo); // agrego al container el obstaculo, declarado en la variable obstaculo
-  obstaculo.classList.add("cactus");
+  let obstaculo = document.createElement("div")
+  container.appendChild(obstaculo) // agrego al container el obstaculo, declarado en la variable obstaculo
+  obstaculo.classList.add("cactus")
   if (Math.random() > 0.5) {
-    obstaculo.classList.add("rocas");
+    obstaculo.classList.add("rocas")
   }
-  obstaculo.motoPosX = container;
-  obstaculo.style.left = container.clientWidth + "px";
+  obstaculo.motoPosX = container
+  obstaculo.style.left = container.clientWidth + "px"
 
   // agrego al array
-  colCactusRocas.push(obstaculo);
+  colCactusRocas.push(obstaculo)
+  tiempoCactusRocas = tiempoCactusRocasMin + Math.random() * (tiempoCactusRocasMax - tiempoCactusRocasMin) / velocidadJuego
 }
 
 // mover rocas o cactus
@@ -204,16 +205,35 @@ function creacionObstaculo() {
 // como mostrar y confirmar que ya se pasaron por encima los otros obstaculos
 function moverObstaculos() {
   for (let i = colCactusRocas.length - 1; i >= 0; i--) {
-    if (colCactusRocas[i].offsetLeft < -colCactusRocas[i].offsetWidth) {
+    if (colCactusRocas[i].posX < -colCactusRocas[i].clientWidth) {
       colCactusRocas[i].parentNode.removeChild(colCactusRocas[i]);
       colCactusRocas.splice(i, 1);
       puntos();
     } else {
-      colCactusRocas[i].style.left =
-        colCactusRocas[i].offsetLeft - calcDesplazamientoMoto() + "px";
-      colCactusRocas[i].style.left = colCactusRocas[i].motoPosX + "px";
+      colCactusRocas[i].posX =
+        colCactusRocas[i].posX - calcDesplazamientoMoto()
+      colCactusRocas[i].style.left = colCactusRocas[i].posX + "px"
     }
   }
+}
+
+function DetectarColision() {
+  for (let i = 0; i < colCactusRocas.length; i++) {
+    if (colCactusRocas[i].posX > motoPosX + moto.clientWidth) {
+      break;
+    } else {
+      if (motoColision(dino, colCactusRocas[i], 10, 30, 15, 20)) {
+        gameOver();
+      }
+    }
+  }
+}
+
+function motoColision(param1, param2, arriba, derecha, abajo, izquierda) {
+  let pParam = param1.getBoundingClientRect()
+  let sParam = param2.getBoundingClientRect()
+
+  return ((pParam.top + pParam.height - abajo) > (sParam.top)) && (pParam.top + arriba < (sParam.top + sParam.height)) && ((pParam.left + pParam.width - derecha) > sParam.left) && (pParam.left + izquierda < (sParam.left + sParam.width))
 }
 
 function puntos() {
