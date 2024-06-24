@@ -16,7 +16,6 @@ let velocidadY = 2 // velocidad en y (vertical)
 let gravedad = 1.2 // ajustar
 let saltando = false
 let enSuelo = true
-let conteo = 0
 let tiempoInicio = 0;
 let intervaloT
 
@@ -34,7 +33,6 @@ function iniciarJuego() {
     cactus.style.animation = '0px'
     rocas.style.animation = 'obstaculo 4s infinite linear'
     rocas.style.right = '0px'
-    conteo = 0
     tiempoInicio = Date.now();
     intervaloT = setInterval(actualizarTiempo, 1000);
     actualizarJuego()
@@ -108,6 +106,7 @@ function detenerJuego() {
     detenerAnimaciones()
     derrota.style.display = 'block'
     reinicio.style.display = 'block'
+    guardarNombre.style.display = 'block';
     juegoIniciado = false
 }
 
@@ -124,8 +123,8 @@ function motoColision(moto, cactus, arriba, derecha, abajo, izquierda) {
 }
 
 function actualizarTiempo() {
-    let tiempoTranscurrido = Math.floor((Date.now() - tiempoInicio) / 1000); // Calcular el tiempo transcurrido en segundos
-    puntaje.innerHTML = `${tiempoTranscurrido}`;
+    let tiempoTranscurrido = Math.floor((Date.now() - tiempoInicio) / 15.45) // cualquiera dividir mas numero
+    puntaje.innerHTML = `${tiempoTranscurrido}`
 }
 
 play.addEventListener('click', function () {
@@ -135,7 +134,19 @@ play.addEventListener('click', function () {
     }
 })
 reinicio.addEventListener('click', function () {
-    reiniciarJuego();
+    reiniciarJuego()
+})
+
+guardarBtn.addEventListener('click', function () {
+    const nombre = nombreInput.value.trim();
+    if (nombre) {
+        const resultados = JSON.parse(localStorage.getItem('resultados')) || [];
+        resultados.push({ nombre: nombre, tiempo: puntaje.innerHTML });
+        localStorage.setItem('resultados', JSON.stringify(resultados));
+        alert('Resultado guardado')
+    } else {
+        alert('Por favor ingrese su nombre!!');
+    }
 });
 
 document.addEventListener('keydown', function (e) {

@@ -40,62 +40,6 @@
   background-position: -262px;
 }
 
-.salto {
-  /* animation: salto 500ms infinite; */
-}
-
-/*@keyframes salto {
-  0% {
-    top: 215px;
-  }
-
-  20% {
-    top: 40px;
-  }
-
-  40% {
-    top: 0px;
-  }
-
-  50% {
-    top: 10px;
-  }
-
-  60% {
-    top: 10px;
-  }
-
-  80% {
-    top: 50px;
-  }
-
-  100% {
-    top: 215px;
-  }
-}*/
-
-@keyframes salto {
-  0% {
-    top: 215px;
-  }
-
-  20% {
-    top: 100px;
-  }
-
-  50% {
-    top: 50px;
-  }
-
-  80% {
-    top: 100px;
-  }
-
-  100% {
-    top: 215px;
-  }
-}
-
 .piso {
   width: 200%;
   height: 30px;
