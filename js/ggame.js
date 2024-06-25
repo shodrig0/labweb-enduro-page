@@ -19,7 +19,6 @@ let enSuelo = true
 let tiempoInicio = 0;
 let intervaloT
 
-
 function iniciarJuego() {
     if (juegoIniciado) return // para evitar que el juego se inicie mas de una vez
     juegoIniciado = true
