@@ -1,6 +1,6 @@
 .container-mayor {
   height: 100vh;
-  background-color: rgb(202, 114, 31);
+  /* background-color: rgb(202, 114, 31); */
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -17,6 +17,9 @@
   background-size: 140%;
   background-position: center;
   overflow: hidden;
+  border: 1px solid black;
+  border-radius: 0.25em;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.733);
 }
 
 .moto {
@@ -130,5 +133,16 @@
 }
 
 #controles button {
+  cursor: pointer;
   margin: 2em;
+  width: 9.5em;
+  height: 4em;
+  border: none;
+  border-radius: 0.25em;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.514);
+  background-image: linear-gradient(rgb(94, 169, 238) 10%, rgba(218, 80, 16, 0.932) 60%, rgba(129, 59, 2, 0.945));
+  font-size: 1.25em;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
 }
