@@ -126,6 +126,40 @@ function actualizarTiempo() {
     puntaje.innerHTML = `${tiempoTranscurrido}`
 }
 
+function mostrarPuntajes() {
+    const puntajesDiv = document.getElementById('puntajes-finales')
+    puntajesDiv.innerHTML = ''
+
+    const resultados = JSON.parse(localStorage.getItem('resultados')) || []
+
+    const tabla = document.createElement('table')
+    tabla.className = 'tablaPuntos'
+
+    const headerT = document.createElement('tr')
+    const nombreHeaderT = document.createElement('th')
+    nombreHeaderT.innerHTML = 'Jugador'
+    const puntosHeaderT = document.createElement('th')
+    puntosHeaderT.innerHTML = 'Puntaje'
+
+    headerT.appendChild(nombreHeaderT)
+    headerT.appendChild(puntosHeaderT)
+    tabla.appendChild(headerT)
+
+    resultados.forEach(resultado => {
+        const fila = document.createElement('tr')
+        const nombreColumna = document.createElement('td')
+        nombreColumna.innerHTML = resultado.nombre
+        const ptsColumna = document.createElement('td')
+        ptsColumna.innerHTML = resultado.tiempo
+
+        fila.appendChild(nombreColumna)
+        fila.appendChild(ptsColumna)
+        tabla.appendChild(fila)
+    })
+
+    puntajesDiv.appendChild(tabla)
+}
+
 play.addEventListener('click', function () {
     if (!juegoIniciado) {
         iniciarJuego()
@@ -137,19 +171,21 @@ reinicio.addEventListener('click', function () {
 })
 
 guardarBtn.addEventListener('click', function () {
-    const nombre = nombreInput.value.trim();
+    const nombre = nombreInput.value.trim()
     if (nombre) {
-        const resultados = JSON.parse(localStorage.getItem('resultados')) || [];
-        resultados.push({ nombre: nombre, tiempo: puntaje.innerHTML });
-        localStorage.setItem('resultados', JSON.stringify(resultados));
+        const resultados = JSON.parse(localStorage.getItem('resultados')) || []
+        resultados.push({ nombre: nombre, tiempo: puntaje.innerHTML })
+        localStorage.setItem('resultados', JSON.stringify(resultados))
         alert('Resultado guardado')
     } else {
-        alert('Por favor ingrese su nombre!!');
-    }
-});
-
-document.addEventListener('keydown', function (e) {
-    if (e.key === ' ' && juegoIniciado) {
-        saltar()
+        alert('Por favor ingrese su nombre!!')
     }
 })
+
+document.addEventListener('click', function () {
+    if (juegoIniciado) {
+        saltar();
+    }
+})
+
+document.addEventListener('DOMContentLoaded', mostrarPuntajes);

@@ -146,3 +146,36 @@
   font-weight: 600;
   text-transform: uppercase;
 }
+
+.containerPuntajes {
+  margin: 0 auto;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tablaPuntos {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tablaPuntos th,
+.tablaPuntos td {
+  border: 1px solid rgb(22, 25, 27);
+  padding: 0.25em 2em;
+  text-align: center;
+}
+
+.tablaPuntos th {
+  background-color: rgba(124, 255, 107, 0.555);
+  padding: 1em;
+}
+
+.tablaPuntos tr:nth-child(even) {
+  background-color: rgba(255, 25, 36, 0.350);
+}
+
+.tablaPuntos tr:nth-child(odd) {
+  background-color: rgba(7, 42, 156, 0.350);
+}

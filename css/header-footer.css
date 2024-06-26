@@ -23,6 +23,7 @@
   background-position: 0 -80px;
   background-repeat: no-repeat;
   filter: grayscale(50%) contrast(150%);
+  mask-image: linear-gradient(rgb(249, 249, 249) 85%, transparent);
 }
 
 /*backgrounds que se inyectan con js*/
