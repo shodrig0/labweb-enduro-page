@@ -29,7 +29,7 @@ function iniciarJuego() {
     moto.style.top = '215px'
     moto.classList.add('moto-funcionando')
     cactus.style.animation = 'obstaculo 5s infinite linear'
-    cactus.style.animation = '0px'
+    cactus.style.right = '0px'
     rocas.style.animation = 'obstaculo 4s infinite linear'
     rocas.style.right = '0px'
     tiempoInicio = Date.now();
