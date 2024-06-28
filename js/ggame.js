@@ -31,7 +31,7 @@ function iniciarJuego() {
     cactus.style.right = '0px'
     rocas.style.animation = 'obstaculo 4s infinite linear'
     rocas.style.right = '0px'
-    tiempoInicio = Date.now();
+    tiempoInicio = Date.now()
     intervaloT = setInterval(actualizarTiempo, 1000)
     actualizarJuego()
 }
