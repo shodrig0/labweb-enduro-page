@@ -73,13 +73,11 @@ function reiniciarJuego() {
 
 function saltar() {
     if (enSuelo && !saltando) {
-        moto.classList.add('salto')
         saltando = true
         enSuelo = false
         velocidadY = -25
 
         setTimeout(function () {
-            moto.classList.remove('salto')
             saltando = false
         }, 300)
     }
