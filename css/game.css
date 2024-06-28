@@ -26,7 +26,6 @@
   width: 84px;
   height: 84px;
   position: absolute;
-  /* bottom: 25px; */
   top: 215px;
   left: 42px;
   z-index: 2;
@@ -140,7 +139,7 @@
   border: none;
   border-radius: 0.25em;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.514);
-  background-image: linear-gradient(rgb(94, 169, 238) 10%, rgba(218, 80, 16, 0.932) 60%, rgba(129, 59, 2, 0.945));
+  background-image: transparent;
   font-size: 1.25em;
   font-family: "Poppins", sans-serif;
   font-weight: 600;

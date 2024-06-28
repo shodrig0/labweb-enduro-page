@@ -179,6 +179,18 @@ img:nth-child(5) {
   border: 0.015em solid rgb(22, 22, 29);
 }
 
+.inicioJuega {
+  margin: 0 auto;
+  width: 22em;
+  height: 22em;
+  background-image: url(../assets/img/Necesarias/4ideal.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  border-radius: 50%;
+  border: 0.015em solid rgb(22, 22, 29);
+}
+
 @keyframes mostrarContenido {
   from {
     opacity: 0;
