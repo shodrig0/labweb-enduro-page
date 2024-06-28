@@ -2,12 +2,12 @@ function cargarHeader() {
   fetch("../header.html")
     .then((request) => request.text())
     .then((dataPage) => {
-      document.getElementById("header").innerHTML = dataPage;
-      fondoRandom();
+      document.getElementById("header").innerHTML = dataPage
+      fondoRandom()
     })
     .catch((error) => {
-      console.error("No se pueden cargar los diseños: ", error);
-    });
+      console.error("No se pueden cargar los diseños: ", error)
+    })
 }
 
 cargarHeader();
@@ -16,39 +16,39 @@ function cargarFooter() {
   fetch("../footer.html")
     .then((request) => request.text())
     .then((dataPage) => {
-      document.getElementById("footer").innerHTML = dataPage;
+      document.getElementById("footer").innerHTML = dataPage
     })
     .catch((error) => {
-      console.error("No se pueden cargar los diseños: ", error);
-    });
+      console.error("No se pueden cargar los diseños: ", error)
+    })
 }
 
-cargarFooter();
+cargarFooter()
 
 
 /**
  * Cambia el fondo del header, con respecto al html en el que
  */
 function fondoRandom() {
-  const bgRandom = document.querySelector(".bg-img");
-  const bgRuta = window.location.pathname;
+  const bgRandom = document.querySelector(".bg-img")
+  const bgRuta = window.location.pathname
 
   let bgCambianteClase;
   if (bgRuta.includes("/index.html")) {
-    bgCambianteClase = "index-bg";
+    bgCambianteClase = "index-bg"
   } else if (bgRuta.includes("/galeria.html")) {
-    bgCambianteClase = "index-bg";
+    bgCambianteClase = "index-bg"
   } else if (bgRuta.includes("/sobreEnduro.html")) {
-    bgCambianteClase = "index-bg";
+    bgCambianteClase = "index-bg"
   } else if (bgRuta.includes("/sobreMi.html")) {
-    bgCambianteClase = "sobreEnd-bg";
+    bgCambianteClase = "sobreEnd-bg"
   } else if (bgRuta.includes("/contacto.html")) {
     bgCambianteClase = "sobreEnd-bg"
   } else if (bgRuta.includes("/game.html")) {
-    bgCambianteClase = "sobreEnd-bg";
+    bgCambianteClase = "sobreEnd-bg"
   }
 
-  bgRandom.classList.add(bgCambianteClase);
+  bgRandom.classList.add(bgCambianteClase)
 }
 
 fondoRandom()
