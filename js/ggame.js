@@ -112,12 +112,14 @@ function motoColision(moto, cactus, arriba, derecha, abajo, izquierda) {
     let rectMoto = moto.getBoundingClientRect()
     let rectCactus = cactus.getBoundingClientRect()
 
-    return (
-        (rectMoto.top + rectMoto.height - abajo) > rectCactus.top &&
-        (rectMoto.top + arriba < rectCactus.top + rectCactus.height) &&
-        (rectMoto.left + rectMoto.width - derecha) > rectCactus.left &&
-        (rectMoto.left + izquierda < rectCactus.left + rectCactus.width)
-    )
+    let colisionArriba = (rectMoto.top + rectMoto.height - abajo) > rectCactus.top
+    let colisionAbajo = rectMoto.top + arriba < rectCactus.top + rectCactus.height
+    let colisionDerecha = (rectMoto.left + rectMoto.width - derecha) > rectCactus.left
+    let colisionIzquierda = rectMoto.left + izquierda < rectCactus.left + rectCactus.width
+
+    let colision = colisionArriba && colisionAbajo && colisionDerecha && colisionIzquierda
+
+    return colision
 }
 
 function actualizarTiempo() {
