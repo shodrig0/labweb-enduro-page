@@ -16,7 +16,7 @@ let velocidadY = 2 // velocidad en y (vertical)
 let gravedad = 1.2 // ajustar
 let saltando = false
 let enSuelo = true
-let tiempoInicio = 0;
+let tiempoInicio = 0
 let intervaloT
 
 function iniciarJuego() {
@@ -33,7 +33,7 @@ function iniciarJuego() {
     rocas.style.animation = 'obstaculo 4s infinite linear'
     rocas.style.right = '0px'
     tiempoInicio = Date.now();
-    intervaloT = setInterval(actualizarTiempo, 1000);
+    intervaloT = setInterval(actualizarTiempo, 1000)
     actualizarJuego()
 }
 
@@ -105,7 +105,7 @@ function detenerJuego() {
     detenerAnimaciones()
     derrota.style.display = 'block'
     reinicio.style.display = 'block'
-    guardarNombre.style.display = 'block';
+    guardarNombre.style.display = 'block'
     juegoIniciado = false
 }
 
@@ -184,8 +184,8 @@ guardarBtn.addEventListener('click', function () {
 
 document.addEventListener('click', function () {
     if (juegoIniciado) {
-        saltar();
+        saltar()
     }
 })
 
-document.addEventListener('DOMContentLoaded', mostrarPuntajes);
+document.addEventListener('DOMContentLoaded', mostrarPuntajes)
