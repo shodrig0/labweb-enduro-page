@@ -71,39 +71,6 @@ let donador = {
     email: document.getElementById('email').value,
     monto: parseInt(document.getElementById('monto').value)
 }
-/**
- * añade donadores
- * @returns array
- */
-function agregarDonador() {
-
-    let bandera
-
-    if (validar()) {
-        let colDonadores = JSON.parse(localStorage.getItem('colDonadores')) || []
-        colDonadores.push(donador)
-        localStorage.setItem('colDonadores', JSON.stringify(colDonadores))
-        bandera = true
-    }
-    return bandera
-}
-
-/**
- * ranking
- * @returns array
- */
-function rankingDonadores() {
-    let colDonadores = JSON.parse(localStorage.getItem('colDonadores')) || []
-    colDonadores.sort((a, b) => b.monto - a.monto)
-    let rankingCOntainer = document.getElementById('ranking')
-    rankingCOntainer.innerHTML = ''
-    colDonadores.forEach((donador, i) => {
-        let rankingIndice = document.createElement('div')
-        rankingIndice.textContent = 'ranking'
-        rankingIndice.innerHTML = `${i + 1}. ${donador.nombre} ${donador.apellido} | Monto: ${donador.monto}ARS`
-        rankingCOntainer.appendChild(rankingIndice)
-    })
-}
 
 /**
  * 
