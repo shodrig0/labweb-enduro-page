@@ -27,7 +27,6 @@ function iniciarJuego() {
     reinicio.style.display = 'none'
 
     moto.style.top = '215px'
-    moto.classList.add('moto-funcionando')
     cactus.style.animation = 'obstaculo 5s infinite linear'
     cactus.style.right = '0px'
     rocas.style.animation = 'obstaculo 4s infinite linear'
